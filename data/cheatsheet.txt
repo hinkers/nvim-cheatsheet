@@ -1,0 +1,6 @@
+# Cheatsheet can be updated at ~/.config/nvim/cheatsheet.txt
+
+normal      [f]     Search for the next character pressed from the current position
+normal      [F]     Search for the next character pressed backwards from the current position
+normal      [t]     Search for the next character pressed from the current position, palces the cursor befor the character
+normal      [T]     Search for the next character pressed backwards from the current position, palces the cursor befor the character
