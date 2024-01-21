@@ -43,8 +43,6 @@ local function update_floating_window(buf, file_lines, query)
     -- Set the buffer back to read-only
     api.nvim_buf_set_option(buf, 'modifiable', false)
     api.nvim_buf_set_option(buf, 'readonly', true)
-
-    return #filtered_lines
 end
 
 -- Function to set up syntax highlighting
@@ -132,7 +130,7 @@ function M.create_floating_window_with_search()
     })
 
     -- Initially display all lines
-    local total_lines = update_floating_window(buf, file_lines, "")
+    update_floating_window(buf, file_lines, "")
 
     -- Syntax highlighting
     setup_buffer_syntax(buf) 
@@ -144,8 +142,8 @@ function M.create_floating_window_with_search()
 
     -- Function to trigger the filter prompt
     _G.FilterLines = function()
-        local query = vim.fn.input('Filter ' .. total_lines .. ': ')
-        total_lines = update_floating_window(buf, file_lines, query)
+        local query = vim.fn.input('Filter: ')
+        update_floating_window(buf, file_lines, query)
     end
 end
 
