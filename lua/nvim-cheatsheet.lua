@@ -1,5 +1,6 @@
 local api = vim.api
 local loop = vim.loop
+local M = {}
 
 -- Function to read file content
 local function read_file_content(file_path)
@@ -91,7 +92,7 @@ local function get_script_directory()
 end
 
 -- Main function to create the floating window with fuzzy search
-local function create_floating_window_with_search()
+function M.create_floating_window_with_search()
     -- Define the file path for the user's cheatsheet and the default cheatsheet
     local file_path = vim.fn.expand('~/.config/nvim/cheatsheet.txt')
 
@@ -150,5 +151,6 @@ local function create_floating_window_with_search()
 end
 
 -- Command to trigger the floating window with search
-vim.api.nvim_create_user_command('Cheatsheet', create_floating_window_with_search, {})
+vim.api.nvim_create_user_command('Cheatsheet', M.create_floating_window_with_search, {})
 
+return M
