@@ -140,6 +140,7 @@ function M.create_floating_window_with_search()
     -- Create a mapping for "/" to trigger the filter prompt
     api.nvim_buf_set_keymap(buf, 'n', '/', ':lua FilterLines()<CR>', {silent = true, noremap = true})
     api.nvim_buf_set_keymap(buf, 'n', '<Esc>', ':lua vim.api.nvim_win_close(' .. win .. ', true)<CR>', {silent = true, noremap = true})
+    api.nvim_buf_set_keymap(buf, 'n', 'q', ':lua vim.api.nvim_win_close(' .. win .. ', true)<CR>', {silent = true, noremap = true})
 
     -- Function to trigger the filter prompt
     _G.FilterLines = function()
