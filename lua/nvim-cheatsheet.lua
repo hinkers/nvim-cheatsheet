@@ -145,9 +145,7 @@ function M.create_floating_window_with_search()
     -- Function to trigger the filter prompt
     _G.FilterLines = function()
         local query = vim.fn.input('Filter ' .. total_lines .. ': ')
-        if query and query ~= "" then
-            total_lines = update_floating_window(buf, file_lines, query)
-        end
+        total_lines = update_floating_window(buf, file_lines, query)
     end
 end
 
